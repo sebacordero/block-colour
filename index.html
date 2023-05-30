@@ -8,6 +8,26 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    
+  <style>
+    body {
+      background-color: #FFFFFF;
+      /* Color de fondo predeterminado */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+    }
+
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -36,53 +56,54 @@
   <div class="container mt-5">
     <h1>Find the color of the Bitcoin block</h1>
     <h5 class="card-title">Interactive color for each block</h5>
-    <p>Last Block Minned: <span id="blockHeight"></span></p>
-    
+    <p>Last Block Mined: <span id="blockHeight"></span></p>
+
     <div class="card" id="blockCard">
       <div class="card-body">
         <h2 class="card-text">#<span id="blockHeight"></span></h2>
       </div>
     </div>
-
-    <script>
-      // Make an HTTP request to the Blockstream Explorer API to get the height of the last block
-      fetch('https://blockstream.info/api/blocks/tip/height')
-        .then(response => response.text())
-        .then(data => {
-          const blockHeight = parseInt(data); // Convertir la respuesta en un número entero
-
-          // Update the block number in the corresponding HTML element
-          document.getElementById('blockHeight').textContent = blockHeight;
-
-          // OGet card item
-          const blockCard = document.getElementById('blockCard');
-
-          // Create hexadecimal color with block number
-          const colorHexa = '#' + data;
-
-          // Set the background color of the card to the hexadecimal color
-          blockCard.style.backgroundColor = colorHexa;
-        })
-        .catch(error => {
-          console.error('Error getting the height of the last block:', error);
-        });
-    </script>
   </div>
 
-   <footer class="footer">
-        <p>SIC - Just for fun </p>
-   </footer>
+  <footer class="footer">
+    <div class="container">
+      <p>SIC - Just for fun</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
   
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-crossorigin="anonymous"></script>
+  <script>
+    // Make an HTTP request to the Blockstream Explorer API to get the height of the last block
+    fetch('https://blockstream.info/api/blocks/tip/height')
+      .then(response => response.text())
+      .then(data => {
+        const blockHeight = parseInt(data); // Convert the response to an integer
+
+        // Update the block number in the corresponding HTML element
+        document.getElementById('blockHeight').textContent = blockHeight;
+
+        // Get the card element
+        const blockCard = document.getElementById('blockCard');
+
+        // Create hexadecimal color with block number
+        const colorHexa = '#' + data;
+
+        // Set the background color of the card to the hexadecimal color
+        blockCard.style.backgroundColor = colorHexa;
+      })
+      .catch(error => {
+        console.error('Error getting the height of the last block:', error);
+      });
+  </script>
 </body>
-  
+
 </html>
