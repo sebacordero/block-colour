@@ -1,5 +1,4 @@
-# block-colour
-The Bitcoin Color of the Block
+# block-colour: The Bitcoin Color of the Block
 
 This idea was motivated by this tweet: https://twitter.com/moon33_blue/status/1663274907701002271?s=20
 
