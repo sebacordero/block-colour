@@ -49,16 +49,16 @@
       fetch('https://blockstream.info/api/blocks/tip/height')
         .then(response => response.text())
         .then(data => {
-          const BlockHeight = parseInt(data); // Convertir la respuesta en un número entero
+          const blockHeight = parseInt(data); // Convertir la respuesta en un número entero
 
           // Update the block number in the corresponding HTML element
-          document.getElementById('blockHeight').textContent = blockHeight;
+          document.getElementById('blockHeight').textContent = data;
 
           // OGet card item
           const blockCard = document.getElementById('blockCard');
 
           // Create hexadecimal color with block number
-          const colorHexa = '#' + blockHeight;
+          const colorHexa = '#' + data;
 
           // Set the background color of the card to the hexadecimal color
           blockCard.style.backgroundColor = colorHexa;
