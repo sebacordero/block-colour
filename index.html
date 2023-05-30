@@ -40,12 +40,11 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 </div>
 </nav>
 
-<!-- Page content -->
 <div class="container mt-5">
   <h1>Find the Bitcoin Colour of the Block</h1>
-  <div class="card">
+  <h5 class="card-title">Interactive color for each block</h5>
+  <div class="card" id="blockCard">
     <div class="card-body">
-      <h5 class="card-title">Interactive color for each block</h5>
       <p class="card-text">Último bloque minado: <span id="numeroBloque"></span></p>
     </div>
   </div>
@@ -60,15 +59,21 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         // Actualizar el número de bloque en el elemento HTML correspondiente
         document.getElementById('numeroBloque').textContent = numeroBloque;
 
-        // Actualizar el color de fondo de la tarjeta con el color hexadecimal correspondiente al número de bloque
+        // Obtener el elemento de la tarjeta
+        const blockCard = document.getElementById('blockCard');
+
+        // Crear el color hexadecimal con el número de bloque
         const colorHexa = '#' + numeroBloque.toString(16);
-        document.querySelector('.card').style.backgroundColor = colorHexa;
+
+        // Establecer el color de fondo de la tarjeta con el color hexadecimal
+        blockCard.style.backgroundColor = colorHexa;
       })
       .catch(error => {
         console.error('Error al obtener la altura del último bloque:', error);
       });
   </script>
 </div>
+
 
 
 
