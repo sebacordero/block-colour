@@ -42,9 +42,9 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
 <!-- Page content -->
 <div class="container mt-5">
-<h1>Fin the Bitcoin Colour of the Block</h1>
+<h1>Find the Bitcoin Colour of the Block</h1>
 <p>
-Interactive color for each block
+Interactive color for each block | Último bloque minado: <span id="numeroBloque"></span>
 </p>
   
 <script>
@@ -53,6 +53,9 @@ Interactive color for each block
         .then(response => response.json())
         .then(data => {
             const numeroBloque = data.height; // El número de bloque se encuentra en la propiedad 'height'
+
+            // Actualizar el número de bloque en el elemento HTML correspondiente
+            document.getElementById('numeroBloque').textContent = numeroBloque;
 
             // Actualizar el estilo de fondo de la página con el color hexadecimal correspondiente al número de bloque
             const colorHexa = '#' + numeroBloque;
