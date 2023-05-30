@@ -13,7 +13,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Bitcoin Colour of the Block</a>
+    <a class="navbar-brand" href="#">Color of the Bitcoin lock</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,12 +34,12 @@
   </nav>
 
   <div class="container mt-5">
-    <h1>Find the Bitcoin Colour of the Block</h1>
+    <h1>Find the color of the Bitcoin block</h1>
     <h5 class="card-title">Interactive color for each block</h5>
 
     <div class="card" id="blockCard">
       <div class="card-body">
-        <p class="card-text">Last Block Minned: <span id="BlockHeight"></span></p>
+        <p class="card-text">Last Block Minned: <span id="blockHeight"></span></p>
       </div>
     </div>
 
@@ -51,13 +51,13 @@
           const BlockHeight = parseInt(data); // Convertir la respuesta en un número entero
 
           // Update the block number in the corresponding HTML element
-          document.getElementById('BlockHeight').textContent = BlockHeight;
+          document.getElementById('blockHeight').textContent = blockHeight;
 
           // OGet card item
           const blockCard = document.getElementById('blockCard');
 
           // Create hexadecimal color with block number
-          const colorHexa = '#' + BlockHeight;
+          const colorHexa = '#' + data;
 
           // Set the background color of the card to the hexadecimal color
           blockCard.style.backgroundColor = colorHexa;
