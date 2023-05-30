@@ -43,7 +43,7 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <!-- Page content -->
 <div class="container mt-5">
   <h1>Find the Bitcoin Colour of the Block</h1>
-  <div class="card" style="background-color: #000000;">
+  <div class="card">
     <div class="card-body">
       <h5 class="card-title">Interactive color for each block</h5>
       <p class="card-text">Último bloque minado: <span id="numeroBloque"></span></p>
@@ -51,24 +51,25 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   </div>
 
   <script>
-    // Realizar una solicitud HTTP a la API de Blockstream Explorer para obtener información del último bloque
-    fetch('https://blockstream.info/api/blocks/tip')
-      .then(response => response.json())
+    // Realizar una solicitud HTTP a la API de Blockstream Explorer para obtener la altura del último bloque
+    fetch('https://blockstream.info/api/blocks/tip/height')
+      .then(response => response.text())
       .then(data => {
-        const numeroBloque = data.height; // El número de bloque se encuentra en la propiedad 'height'
+        const numeroBloque = parseInt(data); // Convertir la respuesta en un número entero
 
         // Actualizar el número de bloque en el elemento HTML correspondiente
         document.getElementById('numeroBloque').textContent = numeroBloque;
 
         // Actualizar el color de fondo de la tarjeta con el color hexadecimal correspondiente al número de bloque
-        const colorHexa = '#' + numeroBloque;
+        const colorHexa = '#' + numeroBloque.toString(16);
         document.querySelector('.card').style.backgroundColor = colorHexa;
       })
       .catch(error => {
-        console.error('Error al obtener el número de bloque:', error);
+        console.error('Error al obtener la altura del último bloque:', error);
       });
   </script>
 </div>
+
 
 
 <!-- Bootstrap JS -->
