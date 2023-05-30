@@ -43,12 +43,7 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <div class="container mt-5">
   <h1>Find the Bitcoin Colour of the Block</h1>
   <h5 class="card-title">Interactive color for each block</h5>
-  <div class="card" id="blockCard">
-    <div class="card-body">
-      <p class="card-text">Último bloque minado: <span id="numeroBloque"></span></p>
-    </div>
-  </div>
-
+ 
   <script>
     // Realizar una solicitud HTTP a la API de Blockstream Explorer para obtener la altura del último bloque
     fetch('https://blockstream.info/api/blocks/tip/height')
@@ -72,6 +67,13 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         console.error('Error al obtener la altura del último bloque:', error);
       });
   </script>
+  
+   <div class="card" id="blockCard">
+    <div class="card-body">
+      <p class="card-text">Último bloque minado: <span id="numeroBloque"></span></p>
+    </div>
+  </div>
+
 </div>
 
 
