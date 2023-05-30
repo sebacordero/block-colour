@@ -67,9 +67,9 @@
         .catch(error => {
           console.error('Error getting the height of the last block:', error);
         });
-      
-      
-      // Make an HTTP request to the Blockstream Explorer API to get the height of the last block
+    </script>
+    <script>
+         // Make an HTTP request to the Blockstream Explorer API to get the height of the last block
       fetch('https://blockstream.info/api/blocks/tip/hash')
         .then(response => response.text())
         .then(data => {
@@ -77,7 +77,6 @@
 
           // Update the block number in the corresponding HTML element
           document.getElementById('blockHash').textContent = blockHash;
-
     </script>
   </div>
 
