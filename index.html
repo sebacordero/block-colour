@@ -37,8 +37,7 @@
     <h1>Find the color of the Bitcoin block</h1>
     <h5 class="card-title">Interactive color for each block</h5>
     <p>Last Block Minned: <span id="blockHeight"></span></p>
-    <p>Last Block Hash: <span id="blockHash"></span></p>
-
+    
     <div class="card" id="blockCard">
       <div class="card-body">
         <h2 class="card-text">#<span id="blockHeight"></span></h2>
@@ -68,19 +67,11 @@
           console.error('Error getting the height of the last block:', error);
         });
     </script>
-    <script>
-         // Make an HTTP request to the Blockstream Explorer API to get the height of the last block
-      fetch('https://blockstream.info/api/blocks/tip/hash')
-        .then(response => response.text())
-        .then(data => {
-          const blockHash = parseInt(data); // Convertir la respuesta en un número entero
-
-          // Update the block number in the corresponding HTML element
-          document.getElementById('blockHash').textContent = blockHash;
-    </script>
   </div>
 
-
+   <footer class="footer">
+        <p>SIC - Just for fun </p>
+   </footer>
   
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -93,5 +84,5 @@ crossorigin="anonymous"></script>
 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 crossorigin="anonymous"></script>
 </body>
-
+  
 </html>
